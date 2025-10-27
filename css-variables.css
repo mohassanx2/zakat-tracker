@@ -1,0 +1,195 @@
+/* CSS Variables for Zakat & Charity Tracker */
+
+/* Colors */
+:root {
+  /* Primary Colors */
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-bg: rgba(255, 255, 255, 0.95);
+  
+  /* Success Colors (الإنجازات) */
+  --success-color: #48bb78;
+  --success-dark: #38a169;
+  --success-gradient: linear-gradient(90deg, #48bb78, #38a169);
+  
+  /* Info Colors (المعلومات) */
+  --info-color: #4299e1;
+  --info-dark: #3182ce;
+  --info-gradient: linear-gradient(135deg, #4299e1, #3182ce);
+  
+  /* Warning Colors (التحذيرات) */
+  --warning-color: #ed8936;
+  --warning-dark: #dd6b20;
+  --warning-gradient: linear-gradient(135deg, #ed8936, #dd6b20);
+  
+  /* Danger Colors (الأخطاء) */
+  --danger-color: #e53e3e;
+  --danger-dark: #c53030;
+  
+  /* Neutral Colors */
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --bg-light: #f7fafc;
+  --border-color: #e2e8f0;
+  
+  /* Background Colors */
+  --background-primary: #f7fafc;
+  --background-secondary: #edf2f7;
+  --card-background: rgba(255, 255, 255, 0.95);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Typography */
+:root {
+  --font-family-base: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* Spacing */
+:root {
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+}
+
+/* Border Radius */
+:root {
+  --border-radius-sm: 0.125rem;
+  --border-radius-base: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
+  --border-radius-2xl: 1rem;
+  --border-radius-3xl: 1.5rem;
+  --border-radius-full: 9999px;
+}
+
+/* Z-index */
+:root {
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* Breakpoints */
+:root {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Animations */
+:root {
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism Effect */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-backdrop: blur(10px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+:root {
+  --progress-bg: #e2e8f0;
+  --progress-fill: linear-gradient(90deg, #48bb78, #38a169);
+  --progress-height: 20px;
+  --progress-radius: 10px;
+}
+
+/* Button Variants */
+:root {
+  --btn-padding-y: 0.75rem;
+  --btn-padding-x: 1.5rem;
+  --btn-border-radius: 0.5rem;
+  --btn-font-size: 0.875rem;
+  --btn-font-weight: 600;
+  
+  /* Primary Button */
+  --btn-primary-bg: var(--info-gradient);
+  --btn-primary-color: white;
+  --btn-primary-border: none;
+  
+  /* Success Button */
+  --btn-success-bg: var(--success-gradient);
+  --btn-success-color: white;
+  --btn-success-border: none;
+  
+  /* Warning Button */
+  --btn-warning-bg: var(--warning-gradient);
+  --btn-warning-color: white;
+  --btn-warning-border: none;
+  
+  /* Secondary Button */
+  --btn-secondary-bg: linear-gradient(135deg, #718096, #4a5568);
+  --btn-secondary-color: white;
+  --btn-secondary-border: none;
+}
+
+/* Card Styles */
+:root {
+  --card-bg: var(--card-background);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --card-border-radius: 1rem;
+  --card-padding: 1.5rem;
+  --card-shadow: var(--glass-shadow);
+  --card-backdrop-filter: var(--glass-backdrop);
+}
+
+/* Dark Mode Variables (للتوسع المستقبلي) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #a0aec0;
+    --background-primary: #1a202c;
+    --background-secondary: #2d3748;
+    --card-background: rgba(45, 55, 72, 0.95);
+    --border-color: #4a5568;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "zakat-charity-tracker",
+  "version": "1.0.0",
+  "description": "Interactive web application for tracking monthly Zakat and charity donations with local data storage",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "zakat",
+    "charity",
+    "islamic",
+    "tracker",
+    "donation",
+    "muslim",
+    "arabic",
+    "local-storage",
+    "vanilla-js",
+    "responsive"
+  ],
+  "author": "MiniMax Agent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/zakat-charity-tracker.git"
+  },
+  "homepage": "https://your-username.github.io/zakat-charity-tracker",
+  "bugs": {
+    "url": "https://github.com/your-username/zakat-charity-tracker/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}

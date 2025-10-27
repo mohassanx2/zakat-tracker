@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 متتبع الزكاة والصدقات</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-mosque"></i> متتبع الزكاة والصدقات</h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">الشهر</span>
+                        <span class="stat-value" id="currentMonth">أكتوبر 2025</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">الهدف الشهري</span>
+                        <span class="stat-value" id="monthlyGoal">1000 جنيه</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <div class="progress-card">
+                <div class="progress-header">
+                    <h3><i class="fas fa-chart-line"></i> التقدم الشهري</h3>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="progress-details">
+                    <span class="amount-paid" id="amountPaid">0 جنيه</span>
+                    <span class="amount-remaining" id="amountRemaining">1000 جنيه متبقي</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <button class="btn btn-primary" onclick="showAddModal()">
+                <i class="fas fa-plus"></i> إضافة مشروع جديد
+            </button>
+            <button class="btn btn-secondary" onclick="resetMonth()">
+                <i class="fas fa-refresh"></i> إعادة تعيين الشهر
+            </button>
+            <button class="btn btn-info" onclick="exportData()">
+                <i class="fas fa-download"></i> تصدير البيانات
+            </button>
+            <button class="btn btn-warning" onclick="dataInterface.togglePanel()">
+                <i class="fas fa-cog"></i> إدارة البيانات
+            </button>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2><i class="fas fa-list"></i> فئات الإنفاق</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Recent Activities -->
+        <section class="recent-activities">
+            <h2><i class="fas fa-clock"></i> آخر الأنشطة</h2>
+            <div class="activities-list" id="activitiesList">
+                <!-- Recent activities will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="summary-section">
+            <div class="summary-card">
+                <h3><i class="fas fa-brain"></i> ملخص الشهر</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <label for="favoriteCategory">أكثر مجال صرف عليه:</label>
+                        <input type="text" id="favoriteCategory" placeholder="مثال: الفقراء والمساكين">
+                    </div>
+                    <div class="summary-item">
+                        <label for="impactfulCase">حالة إنسانية أثرت فيك:</label>
+                        <textarea id="impactfulCase" placeholder="اكتب قصة أو حالة أثرت فيك هذا الشهر"></textarea>
+                    </div>
+                    <div class="summary-item">
+                        <label for="nextMonthIntention">نية الشهر القادم:</label>
+                        <input type="text" id="nextMonthIntention" placeholder="ما الذي تود تحقيقه الشهر القادم؟">
+                    </div>
+                    <button class="btn btn-success" onclick="saveSummary()">
+                        <i class="fas fa-save"></i> حفظ الملخص
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspirational Quote -->
+        <section class="inspiration">
+            <div class="quote-card">
+                <i class="fas fa-quote-right"></i>
+                <blockquote>
+                    "وَمَنْ يُوقَ شُحَّ نَفْسِهِ فَأُولَئِكَ هُمُ الْمُفْلِحُونَ"
+                </blockquote>
+                <cite>- سورة الحشر: 9</cite>
+                <p class="quote-tip">
+                    خصص يوم ثابت كل شهر لإخراج الزكاة أو الصدقات، وسجل في هذا التطبيق لتتابع التقدم والتوازن في العطاء. ❤️
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus"></i> إضافة مشروع جديد</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addCategoryForm">
+                    <div class="form-group">
+                        <label for="categoryName">اسم الفئة:</label>
+                        <input type="text" id="categoryName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryPercentage">النسبة (%):</label>
+                        <input type="number" id="categoryPercentage" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryAmount">المبلغ المخصص (جنيه):</label>
+                        <input type="number" id="categoryAmount" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryIcon">الأيقونة:</label>
+                        <select id="categoryIcon">
+                            <option value="🧍‍♂️">🧍‍♂️ الفقراء</option>
+                            <option value="💊">💊 العلاج</option>
+                            <option value="🏫">🏫 التعليم</option>
+                            <option value="🍞">🍞 الطعام</option>
+                            <option value="💧">💧 الخدمات</option>
+                            <option value="🕊️">🕊️ صدقة جارية</option>
+                            <option value="🌍">🌍 حالات طارئة</option>
+                            <option value="🏥">🏥 المستشفيات</option>
+                            <option value="📚">📚 الكتب</option>
+                            <option value="💰">💰 أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryNotes">ملاحظات:</label>
+                        <textarea id="categoryNotes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">إضافة</button>
+                    </div>
+               خص</form>
+            </div>
+        </div>
+    </div>
+
+    <script src="data-manager.js"></script>
+    <script src="data-interface.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize data management system
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create global instances
+            window.userDataManager = new UserDataManager();
+            window.dataInterface = new DataInterface(window.userDataManager);
+            
+            console.log('✅ تم تحميل نظام إدارة البيانات بنجاح');
+        });
+    </script>
+</body>
+</html>
